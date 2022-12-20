@@ -10,6 +10,8 @@ const db = mysql.createConnection({
     database: "mytable"
 })
 
+app.use(express.json())
+
 app.get("/employees", (req, res) => {
     const q = "SELECT * FROM employee";
     db.query(q, (err, data) => {
@@ -18,6 +20,23 @@ app.get("/employees", (req, res) => {
             return res.json(err);
         }
         return res.json(data);
+    });
+});
+
+app.post("/employee", (req, res) => {
+    const q = "INSERT INTO employee(`firstName`, `lastName`, `salary`) VALUES (?)";
+  
+    const values = [
+      req.body.firstName,
+      req.body.lastName,
+      req.body.salary,
+    ];
+  
+    db.query(q, [values], (err, data) => {
+      if (err){
+        return res.send(err);
+      } 
+      return res.json("Employee Successfully Created");
     });
 });
 
