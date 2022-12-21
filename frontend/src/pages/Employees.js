@@ -21,6 +21,15 @@ const Employees = () => {
         fetchEmployees()
     }, [])
 
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:8000/employee/${id}`);
+            window.location.reload()
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     return (
         <div>
             <h1>EMPLOYEES</h1>
@@ -44,6 +53,10 @@ const Employees = () => {
                             </td>
                             <td>
                                 {employee.salary} 
+                            </td>
+                            <td>
+                                <Button variant="danger">Edit</Button>
+                                <Button variant="danger" onClick={() => handleDelete(employee.id)}>Delete</Button>
                             </td>
                         </tr>
                     )}

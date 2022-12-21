@@ -1,5 +1,6 @@
 import express from "express"
 import mysql from "mysql"
+import cors from "cors"
 
 const app = express()
 
@@ -11,6 +12,7 @@ const db = mysql.createConnection({
 })
 
 app.use(express.json())
+app.use(cors())
 
 app.get("/employees", (req, res) => {
     const q = "SELECT * FROM employee";
@@ -37,6 +39,18 @@ app.post("/employee", (req, res) => {
         return res.send(err);
       } 
       return res.json("Employee Successfully Created");
+    });
+});
+
+app.delete("/employee/:id", (req, res) => {
+    const employeeId = req.params.id;
+    const q = "DELETE FROM employee WHERE id = ?";
+  
+    db.query(q, [employeeId], (err, data) => {
+        if (err){
+            return res.send(err);
+        }
+      return res.json(data);
     });
 });
 
