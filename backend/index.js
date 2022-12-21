@@ -54,6 +54,24 @@ app.delete("/employee/:id", (req, res) => {
     });
 });
 
+app.put("/employee/:id", (req, res) => {
+    const employeeId = req.params.id;
+    const q = "UPDATE employee SET `firstName`= ?, `lastName`= ?, `salary`= ? WHERE id = ?";
+  
+    const values = [
+        req.body.firstName,
+        req.body.lastName,
+        req.body.salary,
+    ];
+  
+    db.query(q, [...values, employeeId], (err, data) => {
+        if (err){
+            return res.send(err);
+        }
+        return res.json(data);
+    });
+});
+
 app.listen(8000, ()=>{
     console.log("Connected to backend")
 })
