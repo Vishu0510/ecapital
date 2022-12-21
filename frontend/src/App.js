@@ -3,6 +3,7 @@ import Add from "./pages/Add";
 import Employees from "./pages/Employees";
 import Edit from "./pages/Edit";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css'
 
 function App() {
   return (

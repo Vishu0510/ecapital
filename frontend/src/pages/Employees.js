@@ -34,7 +34,7 @@ const Employees = () => {
         <div>
             <h1>EMPLOYEES</h1>
 
-            <Table striped bordered hover>
+            <Table striped hover>
                 <thead>
                     <tr>
                         <th>First Name</th>
@@ -55,17 +55,20 @@ const Employees = () => {
                                 {employee.salary} 
                             </td>
                             <td>
-                                <Button variant="danger"><Link to={`/edit/${employee.id}`}>Edit</Link></Button>
+                                <Button variant="warning"><Link to={`/edit/${employee.id}`}>Edit</Link></Button>
                                 <Button variant="danger" onClick={() => handleDelete(employee.id)}>Delete</Button>
                             </td>
                         </tr>
                     )}
+                    <td colSpan={3}></td>
+                    <td>
+                        <Button variant="success">
+                            <Link className="addButton" to="/add">Add Employee</Link>
+                        </Button>
+                    </td>
                 </tbody>
             </Table>
 
-            <Button  variant="success">
-                <Link to="/add">Add Employee</Link>
-            </Button>
         </div>
     );
 }

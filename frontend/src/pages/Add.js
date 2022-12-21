@@ -29,11 +29,11 @@ const Add = () => {
     };
 
     return (
-        <Form>
+        <Form className="form">
             <h1>Add New Employee</h1>
 
             <Form.Group className="mb-3" controlId="formFirstName">
-                <Form.Label>First Name</Form.Label>
+                <Form.Label className='label'>First Name</Form.Label>
                 <Form.Control type="text" placeholder="Enter First Name" name="firstName" onChange={handleChange} />
             </Form.Group>
 

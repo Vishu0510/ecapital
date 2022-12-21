@@ -33,7 +33,7 @@ const Edit = () => {
     };
 
     return (
-        <Form>
+        <Form className="form">
             <h1>Add New Employee</h1>
 
             <Form.Group className="mb-3" controlId="formFirstName">
