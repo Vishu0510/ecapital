@@ -55,7 +55,7 @@ const Employees = () => {
                                 {employee.salary} 
                             </td>
                             <td>
-                                <Button variant="danger">Edit</Button>
+                                <Button variant="danger"><Link to={`/edit/${employee.id}`}>Edit</Link></Button>
                                 <Button variant="danger" onClick={() => handleDelete(employee.id)}>Delete</Button>
                             </td>
                         </tr>

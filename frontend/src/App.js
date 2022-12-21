@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Add from "./pages/Add";
 import Employees from "./pages/Employees";
-import Update from "./pages/Update";
+import Edit from "./pages/Edit";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Employees />} />
           <Route path="/add" element={<Add />} />
-          <Route path="/update" element={<Update />} />
+          <Route path="/edit/:id" element={<Edit />} />
         </Routes>
       </BrowserRouter>
     </div>
